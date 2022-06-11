@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.10.2 on win32)" generated="20220419 11:56:08.435" rpa="false" schemaversion="2">
+<suite id="s1" name="Test1" source="C:\Users\Admin\OneDrive\เดสก์ท็อป\Robot\test1.robot">
+<test id="s1-t1" name="TC_001 Search Library Browser and open 1st link and verify page">
+<kw name="Open Webpage">
+<kw name="New Browser" library="Browser">
+<arg>browser=chromium</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20220419 11:56:10.464" level="INFO">{"browser": "chromium", "headless": false, "handleSIGINT": true, "handleSIGTERM": true, "handleSIGHUP": true, "timeout": 30000.0, "devtools": false, "slowMo": 0.0, "tracesDir": "C:\\Users\\Admin\\OneDrive\\\u0e40\u0e14\u0e2a\u0e01\u0e4c\u0e17\u0e47\u0e2d\u0e1b\\Robot\\browser\\traces\\1b0729aa-9717-4198-9ed1-2db83e53ed8f"}</msg>
+<msg timestamp="20220419 11:56:13.811" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"handleSIGINT":true,"handleSIGTERM":true,"handleSIGHUP":true,"timeout":30000,"devtools":false,"slowMo":0,"tracesDir":"C:\\Users\\Admin\\OneDrive\\เดสก์ท็อป\\Robot\\browser\\traces\\1b0729aa-9717-4198-9ed1-2db83e53ed8f"}</msg>
+<status status="PASS" starttime="20220419 11:56:10.463" endtime="20220419 11:56:13.811"/>
+</kw>
+<kw name="New Page" library="Browser">
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20220419 11:56:17.725" level="INFO">Successfully initialized new page object and opened url: https://www.google.co.th/</msg>
+<msg timestamp="20220419 11:56:17.725" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20220419 11:56:13.811" endtime="20220419 11:56:17.725"/>
+</kw>
+<status status="PASS" starttime="20220419 11:56:10.463" endtime="20220419 11:56:17.725"/>
+</kw>
+<kw name="Input Text Box">
+<arg>Library Browser</arg>
+<kw name="Type Text" library="Browser">
+<arg>${txt_search}</arg>
+<arg>${Text}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20220419 11:56:17.739" level="INFO">Types the text 'Library Browser' in the given field.</msg>
+<status status="PASS" starttime="20220419 11:56:17.734" endtime="20220419 11:56:18.090"/>
+</kw>
+<status status="PASS" starttime="20220419 11:56:17.734" endtime="20220419 11:56:18.090"/>
+</kw>
+<kw name="Enter Search">
+<kw name="Press Keys" library="Browser">
+<arg>${txt_search}</arg>
+<arg>Enter</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="PASS" starttime="20220419 11:56:18.091" endtime="20220419 11:56:18.603"/>
+</kw>
+<status status="PASS" starttime="20220419 11:56:18.091" endtime="20220419 11:56:18.603"/>
+</kw>
+<kw name="Verify Text 1st Link">
+<arg>Browser Library</arg>
+<kw name="Get Text" library="Browser">
+<var>${name_1stlink}</var>
+<arg>${lbl_1stlink}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20220419 11:56:19.493" level="INFO">${name_1stlink} = Browser Library</msg>
+<status status="PASS" starttime="20220419 11:56:18.725" endtime="20220419 11:56:19.493"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${name_1stlink}</arg>
+<arg>${Text}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220419 11:56:19.493" endtime="20220419 11:56:19.493"/>
+</kw>
+<status status="PASS" starttime="20220419 11:56:18.724" endtime="20220419 11:56:19.494"/>
+</kw>
+<kw name="Click 1st Link">
+<kw name="Wait For Elements State" library="Browser">
+<arg>${lbl_1stlink}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20220419 11:56:19.567" level="INFO">Waited for Element with selector //*[@id="rso"]/div[1]//h3 at state visible</msg>
+<status status="PASS" starttime="20220419 11:56:19.515" endtime="20220419 11:56:19.568"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>${lbl_1stlink}</arg>
+<arg>delay=0.5s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20220419 11:56:19.568" endtime="20220419 11:56:20.541"/>
+</kw>
+<status status="PASS" starttime="20220419 11:56:19.514" endtime="20220419 11:56:20.542"/>
+</kw>
+<kw name="Verify page Library Browser">
+<kw name="Get Text" library="Browser">
+<var>${Text2}</var>
+<arg>${lbl_title_browserlibrary}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20220419 11:56:21.863" level="INFO">${Text2} = BROWSER LIBRARY</msg>
+<status status="PASS" starttime="20220419 11:56:20.567" endtime="20220419 11:56:21.863"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${Text2}</arg>
+<arg>BROWSER LIBRARY</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220419 11:56:21.863" endtime="20220419 11:56:21.864"/>
+</kw>
+<status status="PASS" starttime="20220419 11:56:20.567" endtime="20220419 11:56:21.864"/>
+</kw>
+<status status="PASS" starttime="20220419 11:56:10.453" endtime="20220419 11:56:21.869"/>
+</test>
+<test id="s1-t2" name="TC_002 Search Robot Framework and open 1st link and verify page">
+<kw name="Open Webpage">
+<kw name="New Browser" library="Browser">
+<arg>browser=chromium</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20220419 11:56:22.512" level="INFO">{"browser": "chromium", "headless": false, "handleSIGINT": true, "handleSIGTERM": true, "handleSIGHUP": true, "timeout": 30000.0, "devtools": false, "slowMo": 0.0, "tracesDir": "C:\\Users\\Admin\\OneDrive\\\u0e40\u0e14\u0e2a\u0e01\u0e4c\u0e17\u0e47\u0e2d\u0e1b\\Robot\\browser\\traces\\0bfe29c5-24f4-4200-b697-b0ebc71b695d"}</msg>
+<msg timestamp="20220419 11:56:25.982" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"handleSIGINT":true,"handleSIGTERM":true,"handleSIGHUP":true,"timeout":30000,"devtools":false,"slowMo":0,"tracesDir":"C:\\Users\\Admin\\OneDrive\\เดสก์ท็อป\\Robot\\browser\\traces\\0bfe29c5-24f4-4200-b697-b0ebc71b695d"}</msg>
+<status status="PASS" starttime="20220419 11:56:22.511" endtime="20220419 11:56:25.982"/>
+</kw>
+<kw name="New Page" library="Browser">
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20220419 11:56:29.422" level="INFO">Successfully initialized new page object and opened url: https://www.google.co.th/</msg>
+<msg timestamp="20220419 11:56:29.422" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20220419 11:56:25.982" endtime="20220419 11:56:29.422"/>
+</kw>
+<status status="PASS" starttime="20220419 11:56:22.511" endtime="20220419 11:56:29.423"/>
+</kw>
+<kw name="Input Text Box">
+<arg>Robot Framework</arg>
+<kw name="Type Text" library="Browser">
+<arg>${txt_search}</arg>
+<arg>${Text}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20220419 11:56:29.435" level="INFO">Types the text 'Robot Framework' in the given field.</msg>
+<status status="PASS" starttime="20220419 11:56:29.435" endtime="20220419 11:56:29.765"/>
+</kw>
+<status status="PASS" starttime="20220419 11:56:29.434" endtime="20220419 11:56:29.765"/>
+</kw>
+<kw name="Enter Search">
+<kw name="Press Keys" library="Browser">
+<arg>${txt_search}</arg>
+<arg>Enter</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="PASS" starttime="20220419 11:56:29.778" endtime="20220419 11:56:30.126"/>
+</kw>
+<status status="PASS" starttime="20220419 11:56:29.778" endtime="20220419 11:56:30.126"/>
+</kw>
+<kw name="Verify Text 1st Link">
+<arg>Robot Framework</arg>
+<kw name="Get Text" library="Browser">
+<var>${name_1stlink}</var>
+<arg>${lbl_1stlink}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20220419 11:56:31.387" level="INFO">${name_1stlink} = Robot Framework</msg>
+<status status="PASS" starttime="20220419 11:56:30.165" endtime="20220419 11:56:31.387"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${name_1stlink}</arg>
+<arg>${Text}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220419 11:56:31.387" endtime="20220419 11:56:31.388"/>
+</kw>
+<status status="PASS" starttime="20220419 11:56:30.165" endtime="20220419 11:56:31.388"/>
+</kw>
+<kw name="Click 1st Link">
+<kw name="Wait For Elements State" library="Browser">
+<arg>${lbl_1stlink}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20220419 11:56:31.453" level="INFO">Waited for Element with selector //*[@id="rso"]/div[1]//h3 at state visible</msg>
+<status status="PASS" starttime="20220419 11:56:31.428" endtime="20220419 11:56:31.454"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>${lbl_1stlink}</arg>
+<arg>delay=0.5s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20220419 11:56:31.454" endtime="20220419 11:56:32.203"/>
+</kw>
+<status status="PASS" starttime="20220419 11:56:31.427" endtime="20220419 11:56:32.203"/>
+</kw>
+<kw name="Verify page Robot Framework">
+<kw name="Get Text" library="Browser">
+<var>${Text4}</var>
+<arg>${lbl_title_introduction}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20220419 11:56:35.040" level="INFO">${Text4} = INTRODUCTION</msg>
+<status status="PASS" starttime="20220419 11:56:32.467" endtime="20220419 11:56:35.040"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${Text4}</arg>
+<arg>INTRODUCTION</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220419 11:56:35.040" endtime="20220419 11:56:35.041"/>
+</kw>
+<status status="PASS" starttime="20220419 11:56:32.466" endtime="20220419 11:56:35.041"/>
+</kw>
+<status status="PASS" starttime="20220419 11:56:22.478" endtime="20220419 11:56:35.054"/>
+</test>
+<status status="PASS" starttime="20220419 11:56:08.435" endtime="20220419 11:56:35.430"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Test1">Test1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
